@@ -9,7 +9,8 @@ import { validateCommand } from './commands/validate.js';
 import { testCommand } from './commands/test.js';
 import { improveCommand } from './commands/improve.js';
 import { suggestCommand } from './commands/suggest.js';
-// import { mcpsCommand } from './commands/mcps.js';
+import { trainCommand } from './commands/train.js';
+import { mcpsCommand } from './commands/mcps.js';
 // import { importCommand } from './commands/import.js';
 // import { exportCommand } from './commands/export.js';
 
@@ -75,20 +76,14 @@ export function run() {
     .command('train <name>')
     .description('Train a skill with YouTube video transcripts')
     .option('-y, --youtube <urls...>', 'YouTube video URLs')
-    .action((name, options) => {
-      console.log(chalk.yellow('Command not yet implemented: train'));
-      // trainCommand(name, options);
-    });
+    .action(trainCommand);
 
   // skill mcps <name> - Show MCP requirements
   program
     .command('mcps <name>')
     .description('Show MCP server requirements for a skill')
     .option('--config', 'generate MCP config snippet')
-    .action((name, options) => {
-      console.log(chalk.yellow('Command not yet implemented: mcps'));
-      // mcpsCommand(name, options);
-    });
+    .action(mcpsCommand);
 
   // skill import <url> - Import skill from GitHub
   program
