@@ -8,8 +8,7 @@ import { editCommand } from './commands/edit.js';
 import { validateCommand } from './commands/validate.js';
 import { testCommand } from './commands/test.js';
 import { improveCommand } from './commands/improve.js';
-// import { suggestCommand } from './commands/suggest.js';
-// import { trainCommand } from './commands/train.js';
+import { suggestCommand } from './commands/suggest.js';
 // import { mcpsCommand } from './commands/mcps.js';
 // import { importCommand } from './commands/import.js';
 // import { exportCommand } from './commands/export.js';
@@ -69,10 +68,7 @@ export function run() {
   program
     .command('suggest')
     .description('Get skill suggestions based on current project')
-    .action(() => {
-      console.log(chalk.yellow('Command not yet implemented: suggest'));
-      // suggestCommand();
-    });
+    .action(suggestCommand);
 
   // skill train <name> - Train skill with YouTube videos
   program
