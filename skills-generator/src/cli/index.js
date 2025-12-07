@@ -1,10 +1,10 @@
 import { program } from 'commander';
 import chalk from 'chalk';
 
-// Command imports (will be added as implemented)
-// import { newCommand } from './commands/new.js';
-// import { listCommand } from './commands/list.js';
-// import { editCommand } from './commands/edit.js';
+// Command imports
+import { newCommand } from './commands/new.js';
+import { listCommand } from './commands/list.js';
+import { editCommand } from './commands/edit.js';
 // import { validateCommand } from './commands/validate.js';
 // import { testCommand } from './commands/test.js';
 // import { improveCommand } from './commands/improve.js';
@@ -27,10 +27,7 @@ export function run() {
     .option('-t, --template <type>', 'template to use (basic, debugging, document, api)')
     .option('--no-ai', 'skip AI assistance')
     .option('--no-context', 'skip project context scanning')
-    .action((name, options) => {
-      console.log(chalk.yellow('Command not yet implemented: new'));
-      // newCommand(name, options);
-    });
+    .action(newCommand);
 
   // skill list - Show installed skills
   program
@@ -38,19 +35,13 @@ export function run() {
     .alias('ls')
     .description('Show installed skills')
     .option('-d, --dir <path>', 'skills directory')
-    .action((options) => {
-      console.log(chalk.yellow('Command not yet implemented: list'));
-      // listCommand(options);
-    });
+    .action(listCommand);
 
   // skill edit <name> - Edit a skill file
   program
     .command('edit <name>')
     .description('Edit a skill file with live preview')
-    .action((name) => {
-      console.log(chalk.yellow('Command not yet implemented: edit'));
-      // editCommand(name);
-    });
+    .action(editCommand);
 
   // skill validate <name> - Validate a skill
   program
