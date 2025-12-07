@@ -4,10 +4,16 @@ import generator from '../../services/generator/index.js';
 import { runNewSkillWizard, runTemplatePrompts, confirmCreate, askPostCreate } from '../prompts/wizard.js';
 import fs from '../../lib/filesystem.js';
 
-export async function newCommand(name, options) {
+export async function newCommand(name, options, command) {
   try {
+    // Get global options from parent command
+    const globalOpts = command?.parent?.opts?.() || {};
+
     // Run wizard to gather info
-    const wizardData = await runNewSkillWizard(name);
+    const wizardData = await runNewSkillWizard(name, {
+      sarcasm: globalOpts.sarcasm || false,
+      noMascot: globalOpts.mascot === false,
+    });
 
     // Get template-specific prompts
     const templateData = await runTemplatePrompts(wizardData.template);
