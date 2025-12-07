@@ -2,7 +2,7 @@
 
 Generate production-ready Claude Skills from natural language.
 
-A [Vibeship](https://vibeship.co) open source project.
+A [vibeship](https://vibeship.co) open source project.
 
 ---
 
