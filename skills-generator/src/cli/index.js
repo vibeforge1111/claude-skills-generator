@@ -6,8 +6,8 @@ import { newCommand } from './commands/new.js';
 import { listCommand } from './commands/list.js';
 import { editCommand } from './commands/edit.js';
 import { validateCommand } from './commands/validate.js';
-// import { testCommand } from './commands/test.js';
-// import { improveCommand } from './commands/improve.js';
+import { testCommand } from './commands/test.js';
+import { improveCommand } from './commands/improve.js';
 // import { suggestCommand } from './commands/suggest.js';
 // import { trainCommand } from './commands/train.js';
 // import { mcpsCommand } from './commands/mcps.js';
@@ -56,20 +56,14 @@ export function run() {
     .command('test <name>')
     .description('Test a skill in playground with sample prompts')
     .option('-p, --prompts <file>', 'custom test prompts file')
-    .action((name, options) => {
-      console.log(chalk.yellow('Command not yet implemented: test'));
-      // testCommand(name, options);
-    });
+    .action(testCommand);
 
   // skill improve <name> - Get AI improvement suggestions
   program
     .command('improve <name>')
     .description('Get AI improvement suggestions for a skill')
     .option('--auto', 'auto-apply suggestions with confirmation')
-    .action((name, options) => {
-      console.log(chalk.yellow('Command not yet implemented: improve'));
-      // improveCommand(name, options);
-    });
+    .action(improveCommand);
 
   // skill suggest - Get context-aware skill suggestions
   program
