@@ -5,7 +5,7 @@ import chalk from 'chalk';
 import { newCommand } from './commands/new.js';
 import { listCommand } from './commands/list.js';
 import { editCommand } from './commands/edit.js';
-// import { validateCommand } from './commands/validate.js';
+import { validateCommand } from './commands/validate.js';
 // import { testCommand } from './commands/test.js';
 // import { improveCommand } from './commands/improve.js';
 // import { suggestCommand } from './commands/suggest.js';
@@ -49,10 +49,7 @@ export function run() {
     .description('Validate a skill (schema, quality, AI review)')
     .option('--no-ai', 'skip AI review')
     .option('-v, --verbose', 'show detailed output')
-    .action((name, options) => {
-      console.log(chalk.yellow('Command not yet implemented: validate'));
-      // validateCommand(name, options);
-    });
+    .action(validateCommand);
 
   // skill test <name> - Test a skill in playground
   program
