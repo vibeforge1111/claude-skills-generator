@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://claude-skills-generator.dev/skill.schema.json",
+  "title": "Claude Code Skill",
+  "description": "Schema for validating SKILL.md frontmatter",
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 50,
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Skill identifier (lowercase, hyphens allowed)"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "Brief description for skill discovery"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "default": "1.0.0",
+      "description": "Semantic version"
+    },
+    "author": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Skill creator"
+    },
+    "mcps": {
+      "type": "object",
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required MCP servers"
+        },
+        "optional": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional MCP servers"
+        }
+      },
+      "additionalProperties": false
+    },
+    "triggers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5
+      },
+      "minItems": 1,
+      "description": "When to activate this skill"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$"
+      },
+      "description": "Categorization tags"
+    }
+  },
+  "additionalProperties": true
+}
