@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "project_name": "Claude Skills Generator",
+  "description": "A CLI tool that creates deeply capable, well-trained Claude Code agents with AI-assisted writing, validation, testing, and MCP integration.",
+  "phase": "building",
+  "discovery": {
+    "audience": "personal",
+    "platform": "cli",
+    "auth": "no",
+    "data": "simple"
+  },
+  "stack": {
+    "agents": [
+      "planner",
+      "backend",
+      "testing"
+    ],
+    "mcps": [
+      "filesystem"
+    ]
+  },
+  "behaviors": {
+    "mandatory": [
+      "verify-before-complete",
+      "follow-architecture",
+      "one-task-at-a-time",
+      "maintainable-code",
+      "secure-code"
+    ],
+    "selected": [
+      "tdd-mode",
+      "commit-per-task",
+      "explain-as-you-go"
+    ]
+  },
+  "custom_skills_needed": [],
+  "checkpoint": {
+    "last_task": null,
+    "timestamp": "2025-12-07T10:30:00.000Z",
+    "phase_completed": "planning"
+  },
+  "decisions": [
+    {
+      "question": "What type of tool to build?",
+      "answer": "CLI tool for terminal use with Claude Max",
+      "by": "user",
+      "reason": "Works alongside Claude Code in terminal"
+    },
+    {
+      "question": "What validation approach?",
+      "answer": "Multi-layer: schema + quality + AI review + live testing",
+      "by": "user",
+      "reason": "Comprehensive validation for world-class skills"
+    },
+    {
+      "question": "What training sources?",
+      "answer": "Hybrid: pre-built templates + YouTube transcript extraction",
+      "by": "user",
+      "reason": "Multi-modal knowledge, not just text"
+    },
+    {
+      "question": "What differentiates this tool?",
+      "answer": "AI-assisted creation, playground testing, auto-improvement, context-aware suggestions",
+      "by": "planner",
+      "reason": "State of the art without being confusing"
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "a1",
+      "text": "User has Node.js installed",
+      "confirmed": false
+    },
+    {
+      "id": "a2",
+      "text": "User has Anthropic API key for AI features",
+      "confirmed": false
+    },
+    {
+      "id": "a3",
+      "text": "Skills will be stored in .claude/skills/ by default",
+      "confirmed": false
+    }
+  ]
+}

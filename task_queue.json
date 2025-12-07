@@ -1,0 +1,279 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Initialize Node.js project in skills-generator/",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": [],
+      "outputs": ["skills-generator/package.json", "skills-generator/.env.example"],
+      "blockers": []
+    },
+    {
+      "id": "t2",
+      "title": "Create CLI entry point and command router",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t1"],
+      "outputs": ["skills-generator/bin/skill.js", "skills-generator/src/cli/index.js"],
+      "blockers": []
+    },
+    {
+      "id": "t3",
+      "title": "Build shared lib: logger, filesystem, parser",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t1"],
+      "outputs": [
+        "skills-generator/src/lib/logger.js",
+        "skills-generator/src/lib/filesystem.js",
+        "skills-generator/src/lib/parser.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t4",
+      "title": "Build Claude API wrapper",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t1"],
+      "outputs": ["skills-generator/src/lib/claude.js"],
+      "blockers": []
+    },
+    {
+      "id": "t5",
+      "title": "Create JSON Schema for skill validation",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t1"],
+      "outputs": ["skills-generator/src/schemas/skill.schema.json"],
+      "blockers": []
+    },
+    {
+      "id": "t6",
+      "title": "Create skill templates (basic, debugging, document, api)",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t5"],
+      "outputs": [
+        "skills-generator/src/templates/basic.md",
+        "skills-generator/src/templates/debugging.md",
+        "skills-generator/src/templates/document.md",
+        "skills-generator/src/templates/api.md"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t7",
+      "title": "Implement skill new command with AI wizard",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t3", "t4", "t6"],
+      "outputs": [
+        "skills-generator/src/cli/commands/new.js",
+        "skills-generator/src/cli/prompts/wizard.js",
+        "skills-generator/src/services/generator/index.js",
+        "skills-generator/src/services/generator/templates.js",
+        "skills-generator/src/services/generator/ai-writer.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t8",
+      "title": "Implement skill list command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t3"],
+      "outputs": ["skills-generator/src/cli/commands/list.js"],
+      "blockers": []
+    },
+    {
+      "id": "t9",
+      "title": "Implement skill edit command with preview",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t3"],
+      "outputs": ["skills-generator/src/cli/commands/edit.js"],
+      "blockers": []
+    },
+    {
+      "id": "t10",
+      "title": "Build validator service (schema + quality scoring)",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t3", "t5"],
+      "outputs": [
+        "skills-generator/src/services/validator/index.js",
+        "skills-generator/src/services/validator/schema.js",
+        "skills-generator/src/services/validator/quality.js",
+        "skills-generator/src/services/validator/tokens.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t11",
+      "title": "Add AI review to validator",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t4", "t10"],
+      "outputs": ["skills-generator/src/services/validator/ai-review.js"],
+      "blockers": []
+    },
+    {
+      "id": "t12",
+      "title": "Implement skill validate command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t10", "t11"],
+      "outputs": ["skills-generator/src/cli/commands/validate.js"],
+      "blockers": []
+    },
+    {
+      "id": "t13",
+      "title": "Build playground service (sandbox + test prompts)",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t3", "t4"],
+      "outputs": [
+        "skills-generator/src/services/playground/index.js",
+        "skills-generator/src/services/playground/sandbox.js",
+        "skills-generator/src/services/playground/prompts.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t14",
+      "title": "Implement skill test command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t13"],
+      "outputs": ["skills-generator/src/cli/commands/test.js"],
+      "blockers": []
+    },
+    {
+      "id": "t15",
+      "title": "Implement skill improve command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t4", "t10"],
+      "outputs": ["skills-generator/src/cli/commands/improve.js"],
+      "blockers": []
+    },
+    {
+      "id": "t16",
+      "title": "Build context scanner (project analysis)",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t3"],
+      "outputs": [
+        "skills-generator/src/services/context/index.js",
+        "skills-generator/src/services/context/scanner.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t17",
+      "title": "Implement skill suggest command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t4", "t16"],
+      "outputs": ["skills-generator/src/cli/commands/suggest.js"],
+      "blockers": []
+    },
+    {
+      "id": "t18",
+      "title": "Build YouTube transcript service",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t3"],
+      "outputs": [
+        "skills-generator/src/services/trainer/index.js",
+        "skills-generator/src/services/trainer/youtube.js",
+        "skills-generator/src/services/trainer/merger.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t19",
+      "title": "Implement skill train command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t4", "t18"],
+      "outputs": ["skills-generator/src/cli/commands/train.js"],
+      "blockers": []
+    },
+    {
+      "id": "t20",
+      "title": "Build MCP manager service",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t3"],
+      "outputs": [
+        "skills-generator/src/services/mcp/index.js",
+        "skills-generator/src/services/mcp/detector.js",
+        "skills-generator/src/services/mcp/config.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t21",
+      "title": "Implement skill mcps command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t20"],
+      "outputs": ["skills-generator/src/cli/commands/mcps.js"],
+      "blockers": []
+    },
+    {
+      "id": "t22",
+      "title": "Implement skill import command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t3"],
+      "outputs": ["skills-generator/src/cli/commands/import.js"],
+      "blockers": []
+    },
+    {
+      "id": "t23",
+      "title": "Implement skill export command",
+      "skill": "backend",
+      "status": "pending",
+      "depends_on": ["t2", "t3"],
+      "outputs": ["skills-generator/src/cli/commands/export.js"],
+      "blockers": []
+    },
+    {
+      "id": "t24",
+      "title": "Write unit tests for core services",
+      "skill": "testing",
+      "status": "pending",
+      "depends_on": ["t10", "t13", "t18", "t20"],
+      "outputs": [
+        "skills-generator/tests/validator.test.js",
+        "skills-generator/tests/playground.test.js",
+        "skills-generator/tests/trainer.test.js",
+        "skills-generator/tests/mcp.test.js"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "t25",
+      "title": "Write E2E tests for CLI commands",
+      "skill": "testing",
+      "status": "pending",
+      "depends_on": ["t7", "t12", "t14", "t19"],
+      "outputs": ["skills-generator/tests/cli.e2e.test.js"],
+      "blockers": []
+    },
+    {
+      "id": "t26",
+      "title": "Create README and documentation",
+      "skill": "docs",
+      "status": "pending",
+      "depends_on": ["t25"],
+      "outputs": ["skills-generator/README.md"],
+      "blockers": []
+    }
+  ]
+}

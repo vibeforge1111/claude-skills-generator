@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "project": "Claude Skills Generator",
+  "mcps": [
+    "filesystem"
+  ]
+}
