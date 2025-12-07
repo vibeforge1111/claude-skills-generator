@@ -11,8 +11,8 @@ import { improveCommand } from './commands/improve.js';
 import { suggestCommand } from './commands/suggest.js';
 import { trainCommand } from './commands/train.js';
 import { mcpsCommand } from './commands/mcps.js';
-// import { importCommand } from './commands/import.js';
-// import { exportCommand } from './commands/export.js';
+import { importCommand } from './commands/import.js';
+import { exportCommand } from './commands/export.js';
 
 export function run() {
   program
@@ -89,20 +89,14 @@ export function run() {
   program
     .command('import <url>')
     .description('Import a skill from GitHub URL')
-    .action((url) => {
-      console.log(chalk.yellow('Command not yet implemented: import'));
-      // importCommand(url);
-    });
+    .action(importCommand);
 
   // skill export <name> - Export skill for sharing
   program
     .command('export <name>')
     .description('Export a skill for sharing')
     .option('-o, --output <path>', 'output path')
-    .action((name, options) => {
-      console.log(chalk.yellow('Command not yet implemented: export'));
-      // exportCommand(name, options);
-    });
+    .action(exportCommand);
 
   program.parse();
 }
