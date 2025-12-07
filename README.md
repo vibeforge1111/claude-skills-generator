@@ -115,6 +115,50 @@ Generate well-structured, SEO-optimized blog posts...
 | `skill export <name>` | Package for sharing |
 | `skill mcps <name>` | Show/configure MCP requirements |
 
+### Global Options
+
+| Flag | Description |
+|------|-------------|
+| `--no-mascot` | Disable HOOT-9000 mascot |
+| `--sarcasm` | Enable sarcastic mascot mode |
+
+---
+
+## Meet HOOT-9000
+
+```
+     ╔══════╗
+    ╔╣ ◎  ◎ ╠╗
+    ║╚══╤╤══╝║
+    ╠═══╧╧═══╣
+    ╚╤══════╤╝
+     ╘══╧╧══╛
+    HOOT-9000
+```
+
+HOOT-9000 is your owl-robot-monster guide through the skill creation process. By default, HOOT is helpful and professional. But if you want some attitude...
+
+```bash
+# Enable sarcasm mode
+skill new my-skill --sarcasm
+```
+
+**Normal mode:** "Skill created successfully."
+
+**Sarcasm mode:** "Skill generated. You're welcome. I'll be here if you need to fix it."
+
+### Skill Mascots
+
+When creating expert or stacked skills, you can give your skill its own mascot:
+
+```bash
+? Should this skill have its own mascot? Yes
+? Name your mascot: SCAN-3000
+? Personality: vigilant, terse
+```
+
+Your skill's mascot will be saved in `mascot.json` alongside `SKILL.md`.
+
 ---
 
 ## How it works

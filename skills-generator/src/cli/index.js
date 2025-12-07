@@ -1,5 +1,6 @@
 import { program } from 'commander';
 import chalk from 'chalk';
+import mascot from '../mascot/index.js';
 
 // Command imports
 import { newCommand } from './commands/new.js';
@@ -18,7 +19,16 @@ export function run() {
   program
     .name('skill')
     .description('Claude Skills Generator - Create, validate, test, and improve Claude Code skills')
-    .version('1.0.0');
+    .version('1.0.0')
+    .option('--no-mascot', 'disable HOOT-9000 mascot')
+    .option('--sarcasm', 'enable sarcastic mascot mode')
+    .hook('preAction', (thisCommand) => {
+      const opts = thisCommand.opts();
+      mascot.configureMascot({
+        enabled: opts.mascot !== false,
+        sarcasm: opts.sarcasm || false,
+      });
+    });
 
   // skill new [name] - Create a new skill with AI assistance
   program
